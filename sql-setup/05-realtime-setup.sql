@@ -1,0 +1,143 @@
+-- ============================================
+-- STEP 5: REALTIME SETUP
+-- ============================================
+-- Enable real-time subscriptions to watch database changes live.
+-- Your app can listen for INSERT, UPDATE, DELETE events.
+--
+-- Learn more: https://supabase.com/docs/guides/realtime
+-- ============================================
+
+-- ============================================
+-- STEP 5.1: Set REPLICA IDENTITY
+-- ============================================
+-- This tells PostgreSQL to include full row data in change events
+-- Without this, you only get the primary key, not the updated values
+
+ALTER TABLE public.notes REPLICA IDENTITY FULL;
+
+-- ============================================
+-- STEP 5.2: Add table to realtime publication
+-- ============================================
+-- The supabase_realtime publication controls which tables
+-- can be subscribed to from your app
+
+ALTER PUBLICATION supabase_realtime ADD TABLE public.notes;
+
+-- ============================================
+-- HOW TO USE REALTIME IN YOUR APP
+-- ============================================
+--
+-- Example 1: Listen to all changes
+-- ```typescript
+-- const channel = supabase
+--   .channel('notes-changes')
+--   .on(
+--     'postgres_changes',
+--     { event: '*', schema: 'public', table: 'notes' },
+--     (payload) => {
+--       console.log('Change received!', payload)
+--     }
+--   )
+--   .subscribe()
+-- ```
+--
+-- Example 2: Listen to inserts only
+-- ```typescript
+-- supabase
+--   .channel('notes-inserts')
+--   .on(
+--     'postgres_changes',
+--     { event: 'INSERT', schema: 'public', table: 'notes' },
+--     (payload) => {
+--       console.log('New note:', payload.new)
+--     }
+--   )
+--   .subscribe()
+-- ```
+--
+-- Example 3: Listen to updates for specific user
+-- ```typescript
+-- supabase
+--   .channel('my-notes')
+--   .on(
+--     'postgres_changes',
+--     {
+--       event: 'UPDATE',
+--       schema: 'public',
+--       table: 'notes',
+--       filter: `user_id=eq.${userId}`
+--     },
+--     (payload) => {
+--       console.log('Your note updated:', payload)
+--     }
+--   )
+--   .subscribe()
+-- ```
+--
+-- ============================================
+-- UNDERSTANDING REALTIME
+-- ============================================
+--
+-- What is Realtime?
+-- - WebSocket connection to your database
+-- - Get notified instantly when data changes
+-- - No polling needed - push-based updates
+-- - Works with RLS (only get changes you're allowed to see)
+--
+-- Events you can listen to:
+-- - INSERT: New row added
+-- - UPDATE: Existing row changed
+-- - DELETE: Row removed
+-- - *: All events
+--
+-- Use Cases:
+-- 1. Chat applications (new messages appear instantly)
+-- 2. Collaborative editing (see others' changes live)
+-- 3. Live dashboards (data updates in real-time)
+-- 4. Notifications (get alerts on changes)
+-- 5. Multi-user apps (sync state across users)
+--
+-- Payload Structure:
+-- {
+--   eventType: 'INSERT' | 'UPDATE' | 'DELETE',
+--   new: { ...newRow },      // The new data (INSERT, UPDATE)
+--   old: { ...oldRow },      // The old data (UPDATE, DELETE)
+--   schema: 'public',
+--   table: 'notes',
+--   commit_timestamp: '...'
+-- }
+--
+-- ============================================
+-- REALTIME + RLS = SECURE
+-- ============================================
+-- Important: Realtime respects your RLS policies!
+-- Users only receive updates for rows they can access.
+-- This means your real-time features are automatically secure.
+--
+-- ============================================
+-- WHAT JUST HAPPENED?
+-- ============================================
+-- ✅ Enabled REPLICA IDENTITY for full row data
+-- ✅ Added notes table to realtime publication
+-- ✅ Your app can now subscribe to live changes!
+-- ✅ Changes are filtered by RLS policies (secure by default)
+--
+-- 🎉 Database setup is COMPLETE!
+-- ============================================
+--
+-- ============================================
+-- NEXT STEPS
+-- ============================================
+-- 1. Test the setup in your app
+-- 2. Create a note and watch it appear in realtime
+-- 3. Update a note and see the change instantly
+-- 4. Open two browser tabs and watch them sync!
+--
+-- 📚 More Learning Resources:
+-- - Supabase Docs: https://supabase.com/docs
+-- - PostgreSQL Tutorial: https://www.postgresql.org/docs/current/tutorial.html
+-- - RLS Examples: https://supabase.com/docs/guides/auth/row-level-security#examples
+-- - Realtime Guide: https://supabase.com/docs/guides/realtime/postgres-changes
+--
+-- Happy coding! 🚀
+-- ============================================
