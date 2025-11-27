@@ -21,7 +21,7 @@ const Index = () => {
               Interactive demos showcasing Authentication, Storage, Edge Functions, and Realtime features
             </p>
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20">
-              <span className="text-sm text-primary font-mono">Powered by Lovable Cloud</span>
+              <span className="text-sm text-primary font-mono">Powered by xCloud</span>
             </div>
           </div>
         </div>
@@ -74,7 +74,7 @@ const Index = () => {
 
       {/* Footer */}
       <footer className="container mx-auto px-4 py-8 text-center text-sm text-muted-foreground border-t border-border">
-        <p>Built with Lovable Cloud • Learn Supabase features hands-on</p>
+        <p>Built by xCloud • Learn Supabase features hands-on</p>
       </footer>
     </div>
   );

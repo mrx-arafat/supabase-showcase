@@ -1,73 +1,61 @@
-# Welcome to your Lovable project
+# Supabase Learning Platform (xCloud)
 
-## Project info
+An interactive learning project that showcases core Supabase features (Auth, Database, Storage, Edge Functions, and Realtime) in a single, modern React app. This edition of the project is maintained by **xCloud**.
 
-**URL**: https://lovable.dev/projects/204c40c9-8b65-4267-a4e4-767eaf07173a
+## Project Info
 
-## How can I edit this code?
+- **Repository**: https://github.com/mrx-arafat/supabase-showcase
+- **Tech stack**: Vite, React, TypeScript, Tailwind CSS, shadcn-ui, Supabase
 
-There are several ways of editing your application.
+## Getting Started
 
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/204c40c9-8b65-4267-a4e4-767eaf07173a) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+You'll need **Node.js** and **npm** installed. (Using [nvm](https://github.com/nvm-sh/nvm#installing-and-updating) is recommended.)
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+# 1. Clone the repository
+git clone https://github.com/mrx-arafat/supabase-showcase.git
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# 2. Navigate into the project directory
+cd supabase-showcase
 
-# Step 3: Install the necessary dependencies.
-npm i
+# 3. Install dependencies
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# 4. Start the development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Then open the local URL shown in your terminal (usually http://localhost:5173).
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Features
 
-**Use GitHub Codespaces**
+This project includes:
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+- **Authentication Demo** – Email/password sign up & sign in
+- **Database Demo** – Create and manage notes using Supabase Postgres
+- **Storage Demo** – Upload and manage files in Supabase Storage
+- **Edge Function Demo** – Call a sample serverless function
+- **Realtime Demo** – Broadcast and receive live updates between clients
 
-## What technologies are used for this project?
+## Editing the Code
 
-This project is built with:
+You can develop using any workflow you prefer:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- Use your local IDE (VS Code, WebStorm, etc.)
+- Edit files directly in GitHub and pull changes locally
 
-## How can I deploy this project?
+Changes pushed to the `main` (or `master`) branch will update any deployments you have configured (for example, on xCloud or other hosting providers).
 
-Simply open [Lovable](https://lovable.dev/projects/204c40c9-8b65-4267-a4e4-767eaf07173a) and click on Share -> Publish.
+## Deployment
 
-## Can I connect a custom domain to my Lovable project?
+This is a standard Vite + React single-page application. You can deploy it to any modern static hosting platform or your own infrastructure. Typical steps are:
 
-Yes, you can!
+```sh
+npm run build
+```
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+Then deploy the contents of the `dist` directory to your hosting provider of choice (e.g., xCloud, Vercel, Netlify, etc.).
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+## License
+
+This project is provided as an educational Supabase showcase and is maintained by **xCloud**.

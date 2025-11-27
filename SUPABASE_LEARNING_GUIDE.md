@@ -27,13 +27,13 @@ By the end of this guide, you'll understand:
 
 ### Prerequisites
 
-1. A Supabase account (already set up via Lovable Cloud)
+1. A Supabase account and project set up
 2. Access to your Supabase dashboard
 3. Basic understanding of SQL (you'll learn as you go!)
 
 ### Your Project Details
 
-- **Project Dashboard**: Check your Lovable Cloud settings
+- **Project Dashboard**: Check your Supabase project settings
 - **SQL Editor**: Located in left sidebar of Supabase dashboard
 - **All SQL scripts**: Located in the `sql-setup/` folder
 
@@ -42,7 +42,7 @@ By the end of this guide, you'll understand:
 ### Phase 1: Understanding the Dashboard (10 minutes)
 
 1. **Go to your Supabase project dashboard**
-   - Find your project URL in Lovable Cloud settings
+   - Find your project URL in your hosting or deployment platform settings
    - Navigate to: https://supabase.com/dashboard
 
 2. **Explore the interface**
