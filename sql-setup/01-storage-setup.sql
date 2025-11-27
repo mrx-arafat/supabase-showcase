@@ -1,43 +1,38 @@
 -- ============================================
 -- STEP 1: STORAGE SETUP
 -- ============================================
--- This file sets up a storage bucket for file uploads
--- and configures security policies for accessing files.
---
--- Learn more: https://supabase.com/docs/guides/storage
--- ============================================
 
 -- Create a public storage bucket called 'demo-files'
--- Public buckets allow anyone to view files, but you can still
--- control who can upload/delete with policies
 INSERT INTO storage.buckets (id, name, public)
 VALUES ('demo-files', 'demo-files', true)
 ON CONFLICT (id) DO NOTHING;
 
+-- Drop existing policies if they exist (safe to run multiple times)
+DROP POLICY IF EXISTS "Public file access" ON storage.objects;
+DROP POLICY IF EXISTS "Authenticated users can upload files" ON storage.objects;
+DROP POLICY IF EXISTS "Authenticated users can update files" ON storage.objects;
+DROP POLICY IF EXISTS "Authenticated users can delete files" ON storage.objects;
+
 -- Policy 1: Allow anyone to view files (read access)
--- This is safe because the bucket is public
-CREATE POLICY IF NOT EXISTS "Public file access"
+CREATE POLICY "Public file access"
 ON storage.objects FOR SELECT
 TO public
 USING (bucket_id = 'demo-files');
 
 -- Policy 2: Only authenticated users can upload files
--- This prevents anonymous users from filling up your storage
-CREATE POLICY IF NOT EXISTS "Authenticated users can upload files"
+CREATE POLICY "Authenticated users can upload files"
 ON storage.objects FOR INSERT
 TO authenticated
 WITH CHECK (bucket_id = 'demo-files');
 
 -- Policy 3: Users can update their own files
--- Though typically you'd add user_id checks here for production
-CREATE POLICY IF NOT EXISTS "Authenticated users can update files"
+CREATE POLICY "Authenticated users can update files"
 ON storage.objects FOR UPDATE
 TO authenticated
 USING (bucket_id = 'demo-files');
 
 -- Policy 4: Users can delete files
--- Again, in production you'd restrict to file owner
-CREATE POLICY IF NOT EXISTS "Authenticated users can delete files"
+CREATE POLICY "Authenticated users can delete files"
 ON storage.objects FOR DELETE
 TO authenticated
 USING (bucket_id = 'demo-files');
