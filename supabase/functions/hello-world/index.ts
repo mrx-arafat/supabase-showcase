@@ -14,9 +14,21 @@ serve(async (req) => {
   try {
     console.log('Hello World function called');
 
+    // Parse request body
+    let name = 'World';
+    try {
+      const body = await req.json();
+      if (body && body.name) {
+        name = body.name;
+      }
+    } catch {
+      // If no body or invalid JSON, use default name
+    }
+
     const response = {
-      message: 'Hello from Supabase Edge Functions!',
+      message: `Hello ${name} from Supabase Edge Functions!`,
       timestamp: new Date().toISOString(),
+      name: name,
       features: [
         'Serverless execution',
         'Fast cold starts',
@@ -24,6 +36,8 @@ serve(async (req) => {
         'Global edge network'
       ]
     };
+
+    console.log('Response:', response);
 
     return new Response(
       JSON.stringify(response),
