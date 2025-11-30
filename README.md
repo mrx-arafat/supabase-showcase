@@ -47,6 +47,7 @@ This is a **comprehensive, hands-on learning platform** for Supabase - the open-
 - ✅ **Detailed Documentation** - Learn how everything works
 
 **Perfect For:**
+
 - 🎓 Learning Supabase from scratch
 - 💼 Demonstrating capabilities to clients/teams
 - 🚀 Starting new Supabase projects
@@ -60,6 +61,7 @@ This is a **comprehensive, hands-on learning platform** for Supabase - the open-
 ### 🔐 **1. Authentication System**
 
 Complete user management with:
+
 - ✅ Email/Password sign up and sign in
 - ✅ Session management with auto-refresh
 - ✅ Persistent login (survives page reload)
@@ -68,6 +70,7 @@ Complete user management with:
 - ✅ Sign out functionality
 
 **What You'll Learn:**
+
 - How to implement Supabase Auth
 - Session persistence with localStorage
 - Auth state management in React
@@ -78,6 +81,7 @@ Complete user management with:
 ### 🗄️ **2. Database Operations**
 
 Full CRUD operations with PostgreSQL:
+
 - ✅ Create notes with title and content
 - ✅ Read all user's notes (filtered by RLS)
 - ✅ Delete notes securely
@@ -85,12 +89,14 @@ Full CRUD operations with PostgreSQL:
 - ✅ Row Level Security (RLS) policies
 
 **What You'll Learn:**
+
 - PostgreSQL operations via Supabase
 - How RLS protects data automatically
 - Type-safe database queries
 - Real-time database subscriptions
 
 **Database Schema:**
+
 ```sql
 CREATE TABLE notes (
   id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
@@ -106,6 +112,7 @@ CREATE TABLE notes (
 ### 📦 **3. File Storage**
 
 Secure file management:
+
 - ✅ File upload with progress
 - ✅ Public and private buckets
 - ✅ Image preview
@@ -114,6 +121,7 @@ Secure file management:
 - ✅ Storage policies
 
 **What You'll Learn:**
+
 - Supabase Storage API
 - Bucket configuration
 - Storage policies and security
@@ -124,6 +132,7 @@ Secure file management:
 ### ⚡ **4. Edge Functions**
 
 Serverless backend functions:
+
 - ✅ Deploy functions to the edge
 - ✅ Custom API endpoints
 - ✅ Deno runtime
@@ -131,12 +140,14 @@ Serverless backend functions:
 - ✅ Request/response handling
 
 **What You'll Learn:**
+
 - Creating serverless functions
 - Deploying to Supabase Edge
 - API endpoint design
 - Function invocation from frontend
 
 **Example Function:**
+
 ```typescript
 // supabase/functions/hello-world/index.ts
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
@@ -155,6 +166,7 @@ serve(async (req) => {
 ### 🔴 **5. Real-time Chat**
 
 Live messaging system **WITHOUT a database**:
+
 - ✅ Instant message delivery
 - ✅ User presence tracking (who's online)
 - ✅ Join/leave notifications
@@ -164,12 +176,14 @@ Live messaging system **WITHOUT a database**:
 - ✅ Auto-scroll to latest messages
 
 **What You'll Learn:**
+
 - Supabase Broadcast (WebSocket)
 - Presence tracking
 - Ephemeral messaging (no storage)
 - Real-time UI updates
 
 **Key Concept:**
+
 ```
 Chat uses BROADCAST mode:
 - Messages sent via WebSocket
@@ -183,6 +197,7 @@ Chat uses BROADCAST mode:
 ### 📊 **6. Database Real-time**
 
 Live database change monitoring:
+
 - ✅ Watch INSERT/UPDATE/DELETE events
 - ✅ Real-time notifications
 - ✅ Multi-user synchronization
@@ -190,12 +205,14 @@ Live database change monitoring:
 - ✅ Online user counter
 
 **What You'll Learn:**
+
 - Postgres Changes subscriptions
 - Database replication
 - Real-time event handling
 - RLS with real-time
 
 **Key Concept:**
+
 ```
 Database Real-time uses POSTGRES CHANGES:
 - Monitors actual table changes
@@ -208,20 +225,21 @@ Database Real-time uses POSTGRES CHANGES:
 
 ## 🎮 What's Included
 
-| Feature | Description | Database Required | Data Persistent |
-|---------|-------------|-------------------|-----------------|
-| **Authentication** | User sign up/in/out | ✅ Yes (auth.users) | ✅ Yes |
-| **Database CRUD** | Create/read/delete notes | ✅ Yes (notes table) | ✅ Yes |
-| **Storage** | File upload/download | ✅ Yes (storage bucket) | ✅ Yes |
-| **Edge Functions** | Serverless API calls | ❌ No | N/A |
-| **Real-time Chat** | Live messaging | ❌ No | ❌ No (ephemeral) |
-| **DB Real-time** | Watch database changes | ✅ Yes (notes table) | ✅ Yes |
+| Feature                  | Description              | Database Required       | Data Persistent   |
+| ------------------------ | ------------------------ | ----------------------- | ----------------- |
+| **Authentication** | User sign up/in/out      | ✅ Yes (auth.users)     | ✅ Yes            |
+| **Database CRUD**  | Create/read/delete notes | ✅ Yes (notes table)    | ✅ Yes            |
+| **Storage**        | File upload/download     | ✅ Yes (storage bucket) | ✅ Yes            |
+| **Edge Functions** | Serverless API calls     | ❌ No                   | N/A               |
+| **Real-time Chat** | Live messaging           | ❌ No                   | ❌ No (ephemeral) |
+| **DB Real-time**   | Watch database changes   | ✅ Yes (notes table)    | ✅ Yes            |
 
 ---
 
 ## 🛠️ Tech Stack
 
 ### Frontend
+
 - **React 18.3** - UI library with hooks
 - **TypeScript 5.5** - Type-safe JavaScript
 - **Vite 5.4** - Lightning-fast build tool
@@ -232,6 +250,7 @@ Database Real-time uses POSTGRES CHANGES:
 - **Sonner** - Toast notifications
 
 ### Backend (Supabase)
+
 - **PostgreSQL 15** - Relational database
 - **PostgREST** - Automatic REST API
 - **GoTrue** - Authentication service
@@ -240,6 +259,7 @@ Database Real-time uses POSTGRES CHANGES:
 - **Edge Functions** - Deno runtime
 
 ### Development
+
 - **ESLint** - Code linting
 - **PostCSS** - CSS processing
 - **Autoprefixer** - CSS vendor prefixes
@@ -251,6 +271,7 @@ Database Real-time uses POSTGRES CHANGES:
 ### Prerequisites
 
 Before you begin, ensure you have:
+
 - ✅ **Node.js 18+** installed ([Download](https://nodejs.org/))
 - ✅ **npm** or **yarn** package manager
 - ✅ **Supabase account** (free tier works!) ([Sign up](https://supabase.com))
@@ -274,6 +295,7 @@ npm install
 ```
 
 This will install:
+
 - React and related libraries
 - Supabase client library
 - UI components (shadcn/ui)
@@ -296,6 +318,7 @@ VITE_SUPABASE_PROJECT_ID=your-project-id
 ```
 
 **Where to find these values:**
+
 1. Go to [Supabase Dashboard](https://supabase.com/dashboard)
 2. Select your project
 3. Go to **Settings** → **API**
@@ -311,6 +334,7 @@ npm run dev
 ```
 
 Open your browser to:
+
 ```
 http://localhost:5173
 ```
@@ -366,6 +390,7 @@ CREATE POLICY "Users can delete own files" ON storage.objects
 ```
 
 **What this does:**
+
 - Creates a public storage bucket named "avatars"
 - Sets up policies so users can upload/delete their own files
 - Allows public read access to all files
@@ -395,6 +420,7 @@ COMMENT ON COLUMN public.notes.user_id IS 'Foreign key to auth.users';
 ```
 
 **What this does:**
+
 - Creates `notes` table with proper schema
 - Adds indexes for performance
 - Links notes to authenticated users
@@ -431,12 +457,14 @@ CREATE POLICY "Users can delete own notes" ON public.notes
 ```
 
 **What this does:**
+
 - Enables Row Level Security (RLS)
 - Creates policies that automatically filter data by user
 - Prevents users from accessing other users' notes
 - Works automatically - no code changes needed!
 
 **How RLS Works:**
+
 ```
 User A tries to SELECT * FROM notes:
   → Supabase checks: auth.uid() = user_id
@@ -466,6 +494,7 @@ CREATE TRIGGER set_updated_at
 ```
 
 **What this does:**
+
 - Automatically updates `updated_at` field on every note update
 - No manual timestamp management needed
 
@@ -482,11 +511,13 @@ ALTER PUBLICATION supabase_realtime ADD TABLE public.notes;
 ```
 
 **What this does:**
+
 - Enables real-time subscriptions for the `notes` table
 - Allows frontend to listen for INSERT/UPDATE/DELETE events
 - `REPLICA IDENTITY FULL` ensures you get complete row data in events
 
 **Real-time Flow:**
+
 ```
 User creates note → INSERT into notes table
                   ↓
@@ -529,6 +560,7 @@ WHERE pubname = 'supabase_realtime';
 ```
 
 Expected results:
+
 - ✅ Table exists: `true`
 - ✅ RLS enabled: `true`
 - ✅ Table in publication: `notes`
@@ -564,12 +596,14 @@ export const supabase = createClient<Database>(
 ```
 
 **What happens:**
+
 1. Client is created once when app loads
 2. API credentials are read from environment variables
 3. Authentication is configured to persist sessions
 4. Client is used throughout the app (singleton pattern)
 
 **Benefits:**
+
 - ✅ One client instance for the entire app
 - ✅ Sessions persist across page reloads
 - ✅ Tokens refresh automatically
@@ -612,11 +646,13 @@ export type Database = {
 ```
 
 **How to generate:**
+
 ```bash
 npx supabase gen types typescript --project-id your-project-id > src/integrations/supabase/types.ts
 ```
 
 **Benefits:**
+
 - ✅ Full autocomplete in VS Code
 - ✅ Compile-time error checking
 - ✅ Refactoring safety
@@ -660,7 +696,7 @@ useEffect(() => {
   const { data: { subscription } } = supabase.auth.onAuthStateChange(
     (event, session) => {
       setUser(session?.user ?? null);
-      
+    
       // event can be: SIGNED_IN, SIGNED_OUT, TOKEN_REFRESHED, etc.
       if (event === 'SIGNED_IN') {
         console.log('User signed in:', session?.user);
@@ -673,6 +709,7 @@ useEffect(() => {
 ```
 
 **Authentication Flow Diagram:**
+
 ```
 ┌─────────────────────────────────────────────────────────┐
 │ 1. User enters email/password                           │
@@ -726,7 +763,7 @@ const createNote = async () => {
       content: content,
       user_id: user.id  // Must match authenticated user
     });
-    
+  
   if (!error) {
     toast.success("Note created!");
     loadNotes();
@@ -739,7 +776,7 @@ const loadNotes = async () => {
     .from('notes')
     .select('*')
     .order('created_at', { ascending: false });
-    
+  
   if (!error) {
     setNotes(data || []);
     // Only returns current user's notes!
@@ -752,7 +789,7 @@ const deleteNote = async (id: string) => {
     .from('notes')
     .delete()
     .eq('id', id);  // RLS ensures user owns this note
-    
+  
   if (!error) {
     toast.success("Note deleted!");
     loadNotes();
@@ -770,6 +807,7 @@ CREATE POLICY "Users can view own notes" ON notes
 ```
 
 **Example:**
+
 ```typescript
 // User A (id: '123') runs:
 const { data } = await supabase.from('notes').select('*');
@@ -782,6 +820,7 @@ SELECT * FROM notes WHERE user_id = '123';
 ```
 
 **RLS Benefits:**
+
 - ✅ Automatic data filtering by user
 - ✅ No manual WHERE clauses needed
 - ✅ Works on INSERT/UPDATE/DELETE too
@@ -815,10 +854,10 @@ chatChannel
       timestamp: payload.timestamp,
       userId: payload.userId,
     };
-    
+  
     // Add to messages array
     setMessages(prev => [...prev, newMessage]);
-    
+  
     // Auto-scroll to bottom
     scrollRef.current?.scrollTo({
       top: scrollRef.current.scrollHeight,
@@ -875,6 +914,7 @@ presence
 ```
 
 **Broadcast Flow Diagram:**
+
 ```
 ┌──────────┐                                    ┌──────────┐
 │  Tab 1   │                                    │  Tab 2   │
@@ -889,7 +929,7 @@ presence
      │                                               │
      └──────────► SUPABASE ◄───────────────────────┘
                  (Broadcast)
-                 
+               
     ┌────────────────────────────────────┐
     │ Messages NOT stored in database!   │
     │ Ephemeral - disappear when closed  │
@@ -897,6 +937,7 @@ presence
 ```
 
 **Key Concepts:**
+
 - ❌ **No database** - Messages never stored
 - ⚡ **WebSocket** - Instant delivery
 - 🔄 **Broadcast** - Sent to all connected clients
@@ -922,7 +963,7 @@ const notesChannel = supabase
     },
     (payload) => {
       const eventType = payload.eventType;  // INSERT, UPDATE, or DELETE
-      
+    
       if (eventType === 'INSERT') {
         console.log('New note:', payload.new);
         toast.success(`📝 Note created: "${payload.new.title}"`);
@@ -935,7 +976,7 @@ const notesChannel = supabase
         console.log('Deleted note:', payload.old);
         toast.info(`🗑️ Note deleted`);
       }
-      
+    
       // Add to events list
       setDbEvents(prev => [
         {
@@ -955,6 +996,7 @@ const notesChannel = supabase
 ```
 
 **Postgres Changes Flow:**
+
 ```
 ┌─────────────────────────────────────────────────────────┐
 │ 1. User creates note in Database tab                    │
@@ -995,6 +1037,7 @@ const notesChannel = supabase
 ```
 
 **Key Concepts:**
+
 - ✅ **Database required** - Monitors actual table
 - ✅ **Persistent** - Data stored permanently
 - 🔐 **RLS applies** - Users only see their changes
@@ -1097,6 +1140,7 @@ channel.on('broadcast', { event: 'message' }, (payload) => {
 ```
 
 **Characteristics:**
+
 - ❌ No database required
 - ❌ No data storage
 - ⚡ Instant WebSocket delivery
@@ -1104,6 +1148,7 @@ channel.on('broadcast', { event: 'message' }, (payload) => {
 - 💨 Ephemeral (disappears on disconnect)
 
 **Use Cases:**
+
 - ✅ Chat applications
 - ✅ Live notifications
 - ✅ Collaborative cursors
@@ -1146,6 +1191,7 @@ presence
 ```
 
 **Characteristics:**
+
 - ❌ No database required
 - 🧠 Stored in-memory only
 - 🔄 Auto-cleanup on disconnect
@@ -1153,6 +1199,7 @@ presence
 - ⏱️ Temporary state
 
 **Use Cases:**
+
 - ✅ "Who's online" indicators
 - ✅ User count displays
 - ✅ Typing indicators
@@ -1183,6 +1230,7 @@ supabase
 ```
 
 **Characteristics:**
+
 - ✅ Requires database table
 - ✅ Data stored permanently
 - 🔐 RLS policies apply
@@ -1190,6 +1238,7 @@ supabase
 - ⚡ ~100ms latency
 
 **Setup Required:**
+
 ```sql
 -- Enable realtime for table
 ALTER PUBLICATION supabase_realtime ADD TABLE public.notes;
@@ -1197,6 +1246,7 @@ ALTER TABLE public.notes REPLICA IDENTITY FULL;
 ```
 
 **Use Cases:**
+
 - ✅ Live dashboards
 - ✅ Real-time feeds
 - ✅ Inventory tracking
@@ -1209,17 +1259,17 @@ ALTER TABLE public.notes REPLICA IDENTITY FULL;
 
 ### Comparison Table
 
-| Feature | Broadcast | Presence | Postgres Changes |
-|---------|-----------|----------|------------------|
-| **Database Needed** | ❌ No | ❌ No | ✅ Yes |
-| **Table Required** | ❌ No | ❌ No | ✅ Yes |
-| **Data Stored** | ❌ No | ❌ No | ✅ Yes (PostgreSQL) |
-| **Persistent** | ❌ No | ❌ No | ✅ Yes |
-| **Speed** | ⚡ Instant | ⚡ Instant | ⚡ ~100ms |
-| **Transport** | WebSocket | WebSocket | WebSocket + DB |
-| **RLS Applies** | ❌ No | ❌ No | ✅ Yes |
-| **Max Message Size** | ~250KB | ~10KB | Unlimited |
-| **Best For** | Chat, events | Online status | DB updates |
+| Feature                    | Broadcast    | Presence      | Postgres Changes    |
+| -------------------------- | ------------ | ------------- | ------------------- |
+| **Database Needed**  | ❌ No        | ❌ No         | ✅ Yes              |
+| **Table Required**   | ❌ No        | ❌ No         | ✅ Yes              |
+| **Data Stored**      | ❌ No        | ❌ No         | ✅ Yes (PostgreSQL) |
+| **Persistent**       | ❌ No        | ❌ No         | ✅ Yes              |
+| **Speed**            | ⚡ Instant   | ⚡ Instant    | ⚡ ~100ms           |
+| **Transport**        | WebSocket    | WebSocket     | WebSocket + DB      |
+| **RLS Applies**      | ❌ No        | ❌ No         | ✅ Yes              |
+| **Max Message Size** | ~250KB       | ~10KB         | Unlimited           |
+| **Best For**         | Chat, events | Online status | DB updates          |
 
 ---
 
@@ -1397,6 +1447,7 @@ supabase-showcase/
 ### Deploy to Vercel (Recommended)
 
 1. **Push to GitHub**
+
 ```bash
 git add .
 git commit -m "Ready for production"
@@ -1404,19 +1455,21 @@ git push origin master
 ```
 
 2. **Import to Vercel**
+
    - Go to [vercel.com](https://vercel.com)
    - Click "New Project"
    - Import your GitHub repository
-
 3. **Configure Environment Variables**
+
    - Add these in Vercel dashboard:
+
    ```
    VITE_SUPABASE_URL
    VITE_SUPABASE_PUBLISHABLE_KEY
    VITE_SUPABASE_PROJECT_ID
    ```
-
 4. **Deploy**
+
    - Click "Deploy"
    - Wait 1-2 minutes
    - Your app is live! 🎉
@@ -1424,16 +1477,19 @@ git push origin master
 ### Deploy to Netlify
 
 1. **Install Netlify CLI**
+
 ```bash
 npm install -g netlify-cli
 ```
 
 2. **Build**
+
 ```bash
 npm run build
 ```
 
 3. **Deploy**
+
 ```bash
 netlify deploy --prod
 ```
@@ -1470,11 +1526,13 @@ supabase functions deploy hello-world
 **Symptoms:** All Supabase calls fail with network errors
 
 **Causes:**
+
 - Wrong Supabase URL or API key
 - Environment variables not loaded
 - CORS issues
 
 **Solutions:**
+
 ```bash
 # 1. Check .env file exists and has correct values
 cat .env
@@ -1495,11 +1553,13 @@ localStorage.clear();
 **Symptoms:** Database changes don't trigger events
 
 **Causes:**
+
 - Real-time not enabled for table
 - RLS blocking events
 - Missing REPLICA IDENTITY
 
 **Solutions:**
+
 ```sql
 -- Run in SQL Editor:
 
@@ -1522,11 +1582,13 @@ WHERE pubname = 'supabase_realtime';
 **Symptoms:** "New row violates row-level security policy"
 
 **Causes:**
+
 - RLS policies not created
 - User not authenticated
 - Policy conditions don't match
 
 **Solutions:**
+
 ```sql
 -- Check if RLS is enabled
 SELECT tablename, rowsecurity 
@@ -1550,11 +1612,13 @@ ALTER TABLE notes ENABLE ROW LEVEL SECURITY;
 **Symptoms:** User can't sign in or sign up
 
 **Causes:**
+
 - Email not confirmed
 - Wrong credentials
 - Auth service not configured
 
 **Solutions:**
+
 ```typescript
 // Check auth state
 supabase.auth.getSession().then(({ data }) => {
@@ -1570,6 +1634,7 @@ console.log('Auth result:', { data, error });
 ```
 
 **In Supabase Dashboard:**
+
 - Go to **Authentication** → **Users**
 - Check if user exists and is confirmed
 - Try resetting password
@@ -1613,11 +1678,13 @@ serve(async (req) => {
 **Symptoms:** Files won't upload
 
 **Causes:**
+
 - Storage bucket doesn't exist
 - Missing storage policies
 - File size too large
 
 **Solutions:**
+
 ```sql
 -- Check if bucket exists
 SELECT * FROM storage.buckets WHERE name = 'avatars';
@@ -1637,6 +1704,7 @@ VALUES ('avatars', 'avatars', true);
 **Symptoms:** TypeScript compilation errors
 
 **Solutions:**
+
 ```bash
 # Regenerate types from database
 npx supabase gen types typescript --project-id your-project-id > src/integrations/supabase/types.ts
@@ -1737,6 +1805,7 @@ A: Yes, use Supabase CLI: `supabase functions deploy`
 
 **Q: How many concurrent users can this handle?**
 A: Supabase free tier supports:
+
 - 500 concurrent connections
 - 2GB database
 - 1GB file storage
@@ -1753,27 +1822,31 @@ Contributions welcome! Here's how:
 
 1. **Fork the repository**
 2. **Create a feature branch**
+
 ```bash
 git checkout -b feature/amazing-feature
 ```
 
 3. **Make your changes**
+
    - Follow existing code style
    - Add comments for complex logic
    - Update documentation
-
 4. **Test thoroughly**
+
 ```bash
 npm run dev
 npm run build
 ```
 
 5. **Commit with clear message**
+
 ```bash
 git commit -m "Add: Real-time video chat feature"
 ```
 
 6. **Push and create Pull Request**
+
 ```bash
 git push origin feature/amazing-feature
 ```
@@ -1834,16 +1907,19 @@ Special thanks to the open-source community! 💚
 ## 📞 Support & Resources
 
 ### Official Documentation
+
 - 📚 [Supabase Docs](https://supabase.com/docs)
 - 📖 [Supabase Guides](https://supabase.com/docs/guides)
 - 🎥 [Supabase YouTube](https://www.youtube.com/@Supabase)
 
 ### Community
+
 - 💬 [Supabase Discord](https://discord.supabase.com)
 - 🐦 [Supabase Twitter](https://twitter.com/supabase)
 - 📰 [Supabase Blog](https://supabase.com/blog)
 
 ### This Project
+
 - 🐛 [Report Bug](https://github.com/mrx-arafat/supabase-showcase/issues)
 - 💡 [Request Feature](https://github.com/mrx-arafat/supabase-showcase/issues)
 - ⭐ [Star on GitHub](https://github.com/mrx-arafat/supabase-showcase)

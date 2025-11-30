@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { supabase } from "@/integrations/supabase/client";
@@ -10,6 +10,23 @@ export const AuthDemo = () => {
   const [password, setPassword] = useState("");
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(false);
+
+  // Check current auth state on mount and listen for changes
+  useEffect(() => {
+    // Get current session
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setUser(session?.user ?? null);
+    });
+
+    // Listen for auth changes
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null);
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
 
   const handleSignUp = async () => {
     setLoading(true);
@@ -54,10 +71,29 @@ export const AuthDemo = () => {
   return (
     <div className="space-y-4">
       {user ? (
-        <div className="p-4 rounded-lg bg-code-bg border border-code-border">
-          <p className="text-sm text-muted-foreground mb-2">Authenticated as:</p>
-          <code className="text-primary text-sm">{user.email}</code>
-          <Button onClick={handleSignOut} variant="outline" className="mt-4 w-full">
+        <div className="p-6 rounded-lg bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="h-12 w-12 rounded-full bg-primary/20 flex items-center justify-center">
+              <span className="text-primary text-xl font-semibold">
+                {user.email?.[0].toUpperCase()}
+              </span>
+            </div>
+            <div>
+              <p className="text-sm text-muted-foreground">Signed in as</p>
+              <p className="font-medium text-foreground">{user.email}</p>
+            </div>
+          </div>
+          <div className="space-y-2 mb-4 p-3 rounded bg-background/50">
+            <div className="flex justify-between text-sm">
+              <span className="text-muted-foreground">User ID:</span>
+              <code className="text-xs text-primary">{user.id.slice(0, 8)}...</code>
+            </div>
+            <div className="flex justify-between text-sm">
+              <span className="text-muted-foreground">Status:</span>
+              <span className="text-green-500">● Active</span>
+            </div>
+          </div>
+          <Button onClick={handleSignOut} variant="outline" className="w-full">
             Sign Out
           </Button>
         </div>
