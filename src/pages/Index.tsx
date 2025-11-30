@@ -1,10 +1,11 @@
-import { Shield, Database, Zap, Radio } from "lucide-react";
+import { Shield, Database, Zap, Radio, MessageSquare } from "lucide-react";
 import { FeatureCard } from "@/components/FeatureCard";
 import { AuthDemo } from "@/components/AuthDemo";
 import { DatabaseDemo } from "@/components/DatabaseDemo";
 import { StorageDemo } from "@/components/StorageDemo";
 import { EdgeFunctionDemo } from "@/components/EdgeFunctionDemo";
 import { RealtimeDemo } from "@/components/RealtimeDemo";
+import { ChatDemo } from "@/components/ChatDemo";
 
 const Index = () => {
   return (
@@ -63,9 +64,17 @@ const Index = () => {
           </FeatureCard>
 
           <FeatureCard
+            icon={MessageSquare}
+            title="Real-time Chat"
+            description="Live chat with instant message sync and user presence tracking"
+          >
+            <ChatDemo />
+          </FeatureCard>
+
+          <FeatureCard
             icon={Radio}
-            title="Realtime"
-            description="Listen to database changes and broadcast messages in real-time"
+            title="Database Realtime"
+            description="Watch database changes happen live across all connected users"
           >
             <RealtimeDemo />
           </FeatureCard>
