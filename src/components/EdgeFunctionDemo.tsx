@@ -28,13 +28,43 @@ export const EdgeFunctionDemo = () => {
     const loadingToast = toast.loading("⏳ Calling edge function...");
     
     try {
-      const { data, error: fnError } = await supabase.functions.invoke('hello-world', {
-        body: { name: name || 'World' },
-      });
+      // For self-hosted Supabase, call the function directly via fetch
+      const baseUrl = import.meta.env.VITE_SUPABASE_URL;
       
-      if (fnError) {
-        throw new Error(fnError.message);
+      // Ensure URL doesn't have trailing slash
+      const cleanUrl = baseUrl?.replace(/\/$/, '') || '';
+      const url = `${cleanUrl}/functions/v1/hello-world`;
+      
+      console.log("Calling function at:", url);
+      
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name: name || 'World' }),
+      });
+
+      console.log("Response status:", response.status);
+      
+      const responseText = await response.text();
+      console.log("Response text:", responseText);
+
+      if (!response.ok) {
+        // If function not deployed, show helpful message
+        if (response.status === 404) {
+          throw new Error("Edge Function not deployed. See troubleshooting guide for setup instructions.");
+        }
+        
+        try {
+          const errorData = JSON.parse(responseText);
+          throw new Error(`Server Error: ${errorData.error || errorData.msg || response.statusText}`);
+        } catch {
+          throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        }
       }
+
+      const data = JSON.parse(responseText);
       
       setResult(data);
       toast.success("🎉 Function executed successfully!", { id: loadingToast });
@@ -44,6 +74,13 @@ export const EdgeFunctionDemo = () => {
       setError(errorMsg);
       toast.error(`❌ ${errorMsg}`, { id: loadingToast });
       console.error('Edge Function Error:', error);
+      
+      // Offer demo mode as fallback
+      if (errorMsg.includes("not deployed") || errorMsg.includes("404")) {
+        toast.info('💡 Function not deployed yet? Check EDGE_FUNCTION_TROUBLESHOOTING.md', {
+          duration: 5000,
+        });
+      }
     } finally {
       setLoading(false);
     }
