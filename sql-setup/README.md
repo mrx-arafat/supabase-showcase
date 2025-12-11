@@ -1,16 +1,26 @@
-# Supabase Manual Setup Guide
+# Supabase Setup Guide
 
-This folder contains all SQL scripts to set up your Supabase database manually. Follow these steps to learn and implement each feature.
+This folder contains SQL scripts to set up your Supabase database. You have two options:
 
-## 📚 Prerequisites
+## ⚡ Quick Setup (Recommended)
 
-1. Go to your Supabase project dashboard: https://supabase.com/dashboard
-2. Navigate to the **SQL Editor** (left sidebar)
-3. You'll run each SQL file in order
+**File:** `00-complete-setup.sql`
 
-## 🎯 Setup Order
+This file combines ALL setup steps (1-6) into one. Run this entire file at once to get everything set up in 2-3 minutes.
 
-Follow this exact order to set up your Supabase project:
+### Steps:
+1. Go to your Supabase project: https://supabase.com/dashboard
+2. Click **SQL Editor** in the left sidebar
+3. Click **New query**
+4. Copy and paste the entire contents of `00-complete-setup.sql`
+5. Click **Run**
+6. Done! ✅
+
+---
+
+## 📚 Step-by-Step Setup (Learning Path)
+
+If you want to learn each feature individually, follow these files in order:
 
 ### Step 1: Storage Setup
 **File:** `01-storage-setup.sql`
